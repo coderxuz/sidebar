@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "user": "admin",
+      "password": "admin"
+    }
+  ],
+  "groups": {
+    "group1": [
+      {
+        "name": "John",
+        "surname": "Doe",
+        "gender": "male",
+        "accuracy": 95
+      },
+      {
+        "name": "Jane",
+        "surname": "Smith",
+        "gender": "female",
+        "accuracy": 90
+      }
+    ],
+    "group2": [
+      {
+        "name": "Alex",
+        "surname": "Johnson",
+        "gender": "non-binary",
+        "accuracy": 92
+      }
+    ],
+    "group3": [
+      {
+        "name": "Emma",
+        "surname": "Williams",
+        "gender": "female",
+        "accuracy": 88
+      },
+      {
+        "name": "Oliver",
+        "surname": "Brown",
+        "gender": "male",
+        "accuracy": 93
+      }
+    ]
+  }
+}

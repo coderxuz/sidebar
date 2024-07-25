@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  background-color: #000;
+  position: fixed;
+  height: 100%;
+  gap: 20px;
+  padding: 20px;
+  left: 0;
+}
+nav a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+main {
+  padding-left: 220px;
+  padding-top: 20px;
+}/*# sourceMappingURL=sidebar.css.map */
