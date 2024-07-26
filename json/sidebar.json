@@ -5,42 +5,53 @@
       "password": "admin"
     }
   ],
-  "groups": {
-    "group1": [
-      {
-        "name": "John",
-        "surname": "Doe",
-        "gender": "male",
-        "accuracy": 95
-      },
-      {
-        "name": "Jane",
-        "surname": "Smith",
-        "gender": "female",
-        "accuracy": 90
-      }
-    ],
-    "group2": [
-      {
-        "name": "Alex",
-        "surname": "Johnson",
-        "gender": "non-binary",
-        "accuracy": 92
-      }
-    ],
-    "group3": [
-      {
-        "name": "Emma",
-        "surname": "Williams",
-        "gender": "female",
-        "accuracy": 88
-      },
-      {
-        "name": "Oliver",
-        "surname": "Brown",
-        "gender": "male",
-        "accuracy": 93
-      }
-    ]
-  }
+  "groups": [
+    {
+      "id": 1,
+      "group": "group1",
+      "name": "John",
+      "surname": "Doe",
+      "gender": "male",
+      "accuracy": 95
+    },
+    {
+      "id": 2,
+      "group": "group1",
+      "name": "Jane",
+      "surname": "Smith",
+      "gender": "female",
+      "accuracy": 90
+    },
+    {
+      "id": 3,
+      "group": "group2",
+      "name": "Alex",
+      "surname": "Johnson",
+      "gender": "male",
+      "accuracy": 92
+    },
+    {
+      "id": 4,
+      "group": "group3",
+      "name": "Emma",
+      "surname": "Williams",
+      "gender": "female",
+      "accuracy": 88
+    },
+    {
+      "id": 5,
+      "group": "group3",
+      "name": "Oliver",
+      "surname": "Brown",
+      "gender": "male",
+      "accuracy": 93
+    },
+    {
+      "id": "8f9f",
+      "name": "Coder",
+      "surname": "jjrthjtrj",
+      "gender": "male",
+      "accuracy": "45"
+    }
+  ]
 }
