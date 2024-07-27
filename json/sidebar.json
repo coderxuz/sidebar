@@ -2,12 +2,18 @@
   "users": [
     {
       "user": "admin",
-      "password": "admin"
+      "password": "admin",
+      "id": "82ff"
     }
   ],
   "groups": [
+    "group1",
+    "group2",
+    "group3"
+  ],
+  "students": [
     {
-      "id": 1,
+      "id": "1",
       "group": "group1",
       "name": "John",
       "surname": "Doe",
@@ -15,7 +21,7 @@
       "accuracy": 95
     },
     {
-      "id": 2,
+      "id": "2",
       "group": "group1",
       "name": "Jane",
       "surname": "Smith",
@@ -23,7 +29,7 @@
       "accuracy": 90
     },
     {
-      "id": 3,
+      "id": "3",
       "group": "group2",
       "name": "Alex",
       "surname": "Johnson",
@@ -31,7 +37,7 @@
       "accuracy": 92
     },
     {
-      "id": 4,
+      "id": "4",
       "group": "group3",
       "name": "Emma",
       "surname": "Williams",
@@ -39,7 +45,7 @@
       "accuracy": 88
     },
     {
-      "id": 5,
+      "id": "5",
       "group": "group3",
       "name": "Oliver",
       "surname": "Brown",
@@ -47,11 +53,28 @@
       "accuracy": 93
     },
     {
-      "id": "8f9f",
+      "id": "1db3",
+      "name": "Student",
+      "surname": "St",
+      "gender": "female",
+      "accuracy": "60",
+      "group": "group2"
+    },
+    {
+      "id": "6959",
       "name": "Coder",
       "surname": "jjrthjtrj",
       "gender": "male",
-      "accuracy": "45"
+      "accuracy": "91",
+      "group": "group2"
+    },
+    {
+      "id": "9bf7",
+      "name": "Coder",
+      "surname": "jjrthjtrj",
+      "gender": "male",
+      "accuracy": "100",
+      "group": "group2"
     }
   ]
 }

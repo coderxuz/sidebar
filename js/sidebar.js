@@ -9,28 +9,29 @@ const get = async (resurs) => {
   const data = await request.json();
   return data;
 };
-get("http://localhost:3000/groups").then((data) => {
+const btn = document.createElement("button");
+btn.innerHTML = "Create";
+btn.addEventListener("click", () => {
+  modal.style.display = "flex";
+});
+
+get("http://localhost:3000/students").then((data) => {
   const dataArr1 = Array.from(data);
-  dataArr1.forEach((item) => {
-    const btn = document.createElement("button");
-    const mainInner = () => {
-      const box = document.createElement("div");
-      content.appendChild(btn);
-      box.innerHTML=''
-      box.classList = "box";
-      content.appendChild(box);
-      btn.innerHTML = "Create";
-      btn.addEventListener("click", () => {
-        modal.style.display = "flex";
-      });
-      console.log(item);
-      const card = document.createElement("div");
-      box.appendChild(card);
-      card.classList = "card";
+  const box = document.createElement("div");
+  box.prepend(btn);
+  const mainInner = (item) => {
+    content.appendChild(btn);
+    box.classList = "box";
+    content.appendChild(box);
+    const card = document.createElement("div");
+    box.appendChild(card);
+    card.classList = "card";
+    if (item.accuracy >= 90) {
       card.innerHTML = `
-              <h2>${item.name} ${item.surname}</h2>
-              <p>Gender: ${item.gender}</p>
-              <h3>Accuracy: ${item.accuracy}</h3>`;
+                <h2>${item.name} ${item.surname}</h2>
+                <p>Gender: ${item.gender}</p>
+                <h3>Accuracy: ${item.accuracy}</h3>
+                <h3>Group: ${item.group}</h3>`;
       const img = document.createElement("img");
       if (item.gender === "male") {
         img.src = "./img/man.png";
@@ -38,26 +39,80 @@ get("http://localhost:3000/groups").then((data) => {
         img.src = "./img/woman.png";
       }
       card.prepend(img);
-    };
-    const studentInner = () => {
-      content.innerHTML = "student";
-    };
-    navArr.forEach((item) => {
-      item.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (e.target.id === "main") {
-          console.log(e.target.id);
-          mainInner();
-        } else if (e.target.id === "students") {
-          studentInner();
+    }
+  };
+  const studentInner = () => {
+    get("http://localhost:3000/groups").then((data) => {
+      const dataArr = Array.from(data);
+      const undo = document.createElement("button");
+      content.appendChild(undo);
+      undo.innerHTML = "undo";
+      dataArr.map((e) => {
+        undo.addEventListener('click' , ()=>{
+          box.innerHTML =''
+          group(e)
+        })
+        function group(el) {
+          const div = document.createElement("div");
+          content.appendChild(box);
+          box.appendChild(div);
+          div.classList = "group";
+          div.id = el;
+          div.innerHTML = el;
+
+          div.addEventListener("click", (e) => {
+            console.log(e.target.id);
+            box.innerHTML = "";
+            get("http://localhost:3000/students").then((data) => {
+              const arrdata = Array.from(data);
+              arrdata.map((item) => {
+                if (e.target.id === item.group) {
+                  const card = document.createElement("div");
+                  box.appendChild(card);
+                  card.classList = "card";
+
+                  card.innerHTML = `
+                        <h2>${item.name} ${item.surname}</h2>
+                        <p>Gender: ${item.gender}</p>
+                        <h3>Accuracy: ${item.accuracy}</h3>
+                        <h3>Group: ${item.group}</h3>`;
+                  const img = document.createElement("img");
+                  if (item.gender === "male") {
+                    img.src = "./img/man.png";
+                  } else {
+                    img.src = "./img/woman.png";
+                  }
+                  card.prepend(img);
+                }
+              });
+            });
+          });
         }
+        group(e);
       });
+    });
+  };
+  dataArr1.forEach((item) => {
+    mainInner(item);
+  });
+  navArr.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      e.preventDefault();
+      content.innerHTML = "";
+      box.innerHTML = "";
+      if (e.target.id === "main") {
+        dataArr1.forEach((item) => {
+          mainInner(item);
+        });
+      } else if (e.target.id === "students") {
+        studentInner(item);
+      }
     });
   });
 });
-const post = async (name, surname, gender, accuracy) => {
+const post = async (name, surname, gender, accuracy, group) => {
   try {
-    const response = await fetch("http://localhost:3000/groups/", {
+    const response = await fetch("http://localhost:3000/students/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -67,23 +122,33 @@ const post = async (name, surname, gender, accuracy) => {
         surname: surname,
         gender: gender,
         accuracy: accuracy,
+        group: group,
       }),
     });
   } catch (err) {
     console.log(err);
   }
 };
+get("http://localhost:3000/groups").then((data) => {
+  const dataArr2 = Array.from(data);
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  modal.style.display = "none";
-  form.cancel.addEventListener("click", () => {
-    modal.style.display = "none";
+  dataArr2.forEach((e) => {
+    const opt = document.createElement("option");
+    form.group.appendChild(opt);
+    opt.value = e;
+    opt.innerHTML = e;
   });
-  post(
-    form.name.value,
-    form.surname.value,
-    form.gender.value,
-    form.accuracy.value
-  );
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    modal.style.display = "none";
+    modal.style.display = "none";
+    form.cancel.addEventListener("click", () => {});
+    post(
+      form.name.value,
+      form.surname.value,
+      form.gender.value,
+      form.accuracy.value,
+      form.group.value
+    );
+  });
 });

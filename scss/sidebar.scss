@@ -67,3 +67,12 @@ form{
   align-items: center;
   display: none;
 }
+.group{
+  width: 300px;
+  height: 500px;
+  background-color: rgba(128, 128, 128, 0.367);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
