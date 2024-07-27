@@ -15,7 +15,7 @@ btn.addEventListener("click", () => {
   modal.style.display = "flex";
 });
 
-get("http://localhost:3000/students").then((data) => {
+get("https://json-g5ke.onrender.com/students").then((data) => {
   const dataArr1 = Array.from(data);
   const box = document.createElement("div");
   box.prepend(btn);
@@ -42,7 +42,7 @@ get("http://localhost:3000/students").then((data) => {
     }
   };
   const studentInner = () => {
-    get("http://localhost:3000/groups").then((data) => {
+    get("https://json-g5ke.onrender.com/groups").then((data) => {
       const dataArr = Array.from(data);
       const undo = document.createElement("button");
       content.appendChild(undo);
@@ -70,7 +70,7 @@ get("http://localhost:3000/students").then((data) => {
           div.addEventListener("click", (e) => {
             console.log(e.target.id);
             box.innerHTML = "";
-            get("http://localhost:3000/students").then((data) => {
+            get("https://json-g5ke.onrender.com/students").then((data) => {
               const arrdata = Array.from(data);
               arrdata.map((item) => {
                 if (e.target.id === item.group) {
@@ -119,7 +119,7 @@ get("http://localhost:3000/students").then((data) => {
 });
 const post = async (name, surname, gender, accuracy, group) => {
   try {
-    const response = await fetch("http://localhost:3000/students/", {
+    const response = await fetch("https://json-g5ke.onrender.com/students", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -136,7 +136,7 @@ const post = async (name, surname, gender, accuracy, group) => {
     console.log(err);
   }
 };
-get("http://localhost:3000/groups").then((data) => {
+get("https://json-g5ke.onrender.com/groups").then((data) => {
   const dataArr2 = Array.from(data);
 
   dataArr2.forEach((e) => {

@@ -15,7 +15,7 @@ form.addEventListener('submit', (e) => {
     const username = form.username.value;
     const password = form.password.value;
 
-    get('http://localhost:3000/users').then((data) => {
+    get('https://json-g5ke.onrender.com/users').then((data) => {
         const dataArr = Array.from(data)
         dataArr.map(item => {
 
