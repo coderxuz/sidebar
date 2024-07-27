@@ -7,9 +7,18 @@
     }
   ],
   "groups": [
-    "group1",
-    "group2",
-    "group3"
+    {
+      "id": 1,
+      "name": "group1"
+    },
+    {
+      "id": 2,
+      "name": "group2"
+    },
+    {
+      "id": 3,
+      "name": "group3"
+    }
   ],
   "students": [
     {
