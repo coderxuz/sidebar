@@ -48,9 +48,16 @@ get("http://localhost:3000/students").then((data) => {
       content.appendChild(undo);
       undo.innerHTML = "undo";
       dataArr.map((e) => {
+        console.log(e.name);
         undo.addEventListener('click' , ()=>{
-          box.innerHTML =''
-          group(e)
+          const boxArr = Array.from(box.childNodes)
+          console.log(boxArr);
+          boxArr.map((element)=>{
+            if(element.classList.value === 'card'){
+              box.removeChild(element)
+            }
+          })
+          group(e.name)
         })
         function group(el) {
           const div = document.createElement("div");
@@ -88,7 +95,7 @@ get("http://localhost:3000/students").then((data) => {
             });
           });
         }
-        group(e);
+        group(e.name);
       });
     });
   };
@@ -152,3 +159,8 @@ get("http://localhost:3000/groups").then((data) => {
     );
   });
 });
+const out = document.getElementById('out')
+out.addEventListener('click', (e)=>{
+  e.preventDefault()
+  window.open('../index.html' , '_self')
+})
