@@ -8,15 +8,15 @@
   ],
   "groups": [
     {
-      "id": 1,
+      "id": "1",
       "name": "group1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "group2"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "group3"
     }
   ],
@@ -84,6 +84,14 @@
       "gender": "male",
       "accuracy": "100",
       "group": "group2"
+    },
+    {
+      "id": "f99e",
+      "name": "hrhhh",
+      "surname": "rshshsh",
+      "gender": "male",
+      "accuracy": "91",
+      "group": "group1"
     }
   ]
 }

@@ -142,8 +142,8 @@ get("http://localhost:3000/groups").then((data) => {
   dataArr2.forEach((e) => {
     const opt = document.createElement("option");
     form.group.appendChild(opt);
-    opt.value = e;
-    opt.innerHTML = e;
+    opt.value = e.name;
+    opt.innerHTML = e.name;
   });
   form.addEventListener("submit", (e) => {
     e.preventDefault();
