@@ -5,6 +5,10 @@
   font-family: sans-serif;
 }
 
+body {
+  position: relative;
+}
+
 a {
   text-decoration: none;
 }
@@ -81,4 +85,35 @@ form {
   justify-content: center;
   align-items: center;
   font-size: 30px;
+}
+
+@media only screen and (max-width: 425px) {
+  nav {
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+  }
+  nav .navigation {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  nav .log-out {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 20px;
+  }
+  main {
+    padding-left: 0;
+    margin-bottom: 100px;
+  }
+  main .box {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=sidebar.css.map */
