@@ -78,6 +78,7 @@ form{
   justify-content: center;
   align-items: center;
   font-size: 30px;
+  border: 1px solid black;
 }
 @media only screen and (max-width: 425px) {
   nav{
@@ -106,6 +107,7 @@ form{
     .box{
       flex-wrap: nowrap;
       flex-direction: column;
+      gap: 10px;
     }
   }
 }
